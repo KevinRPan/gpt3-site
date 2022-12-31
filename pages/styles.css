@@ -313,7 +313,7 @@ textarea {
 .output-content {
     outline: none;
     display: flex;
-    /* max-width: 25%; */
+    max-width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     flex-shrink: 0;
@@ -321,14 +321,14 @@ textarea {
 }
 
 .output-content p {
-    text-align: center;
+    text-align: left;
     white-space: pre-line;
     color: rgba(255, 255, 255, 0.5);
 }
 
 @media (min-width: 810px) and (max-width: 1199px) {
     .container {
-        max-width: 600px;
+        max-width: 650px;
         width: 100%;
     }
 

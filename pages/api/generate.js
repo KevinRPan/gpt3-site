@@ -5,14 +5,15 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration)
-const basePromptPrefix = `Write rules for a drinking game for`
+const basePromptPrefix = `Write rules for a fun drinking game for: `
+const basePromptSuffix = `No dice involved.`
 
 const generateAction = async (req, res) => {
-    console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
+    console.log(`API: ${basePromptPrefix}${req.body.userInput}${basePromptSuffix}`)
 
     const baseCompletion = await openai.createCompletion({
         model: 'text-davinci-003',
-        prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+        prompt: `${basePromptPrefix}${req.body.userInput}\n${basePromptPrefix}\n`,
         temperature: 0.85,
         max_tokens: 256,
     });
