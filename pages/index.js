@@ -3,26 +3,6 @@ import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 import { useState } from 'react';
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDTd23YUhCgbgC4BRDjAFJKJp92kANwwoE",
-  authDomain: "hello-firebase-gg.firebaseapp.com",
-  projectId: "hello-firebase-gg",
-  storageBucket: "hello-firebase-gg.appspot.com",
-  messagingSenderId: "811621420709",
-  appId: "1:811621420709:web:23de7f66cc63bf1a76874c",
-  measurementId: "G-S1LM1F181F"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const fs = require('fs');
 
