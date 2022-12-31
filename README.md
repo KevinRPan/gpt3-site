@@ -1,3 +1,2 @@
-# buildspace 
 ### Welcome 👋
-Wrapper app to create a game out of your activity
+This is a wrapper web app to create a (drinking) game out of your activity
