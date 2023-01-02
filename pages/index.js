@@ -3,7 +3,6 @@ import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
 import { useState } from 'react';
 
-// const analytics = getAnalytics(app);
 const fs = require('fs');
 
 const Home = () => {
@@ -56,14 +55,17 @@ const Home = () => {
             value={userInput}
             onChange={onUserChangedText}
           />
+
           <div className="prompt-buttons">
             <a className={isGenerating ? "generate-button loading" : "generate-button"}
-              onClick={callGenerateEndpoint}>
+              onClick={callGenerateEndpoint}
+              href="#">
               <div className="generate">
                 {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
               </div>
             </a>
           </div>
+
           {apiOutput && (
             <div className="output">
               <div className="output-header-container">
@@ -87,7 +89,7 @@ const Home = () => {
         >
           <div className="badge">
             <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>drink responsibly</p>
+            <p>play responsibly</p>
           </div>
         </a>
       </div>
