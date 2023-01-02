@@ -38,6 +38,7 @@ const Home = () => {
   };
 
   return (
+    
     <div className="root">
       <div className="container">
         <div className="header">
@@ -49,6 +50,7 @@ const Home = () => {
           </div>
         </div>
         <div className="prompt-container">
+
           <textarea
             placeholder="what's your activity"
             className="prompt-box"
