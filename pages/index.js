@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const fs = require('fs');
+
+const display_badge = false;
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -30,12 +32,25 @@ const Home = () => {
     setIsGenerating(false);
   }
 
-
+  useEffect(() => {
+    const listener = event => {
+      if (event.code === "Enter" || event.code === "NumpadEnter") {
+        console.log("Enter key was pressed. Running.");
+        event.preventDefault();
+        callGenerateEndpoint();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  }, []);
 
   const onUserChangedText = (event) => {
-    // console.log(event.target.value);
     setUserInput(event.target.value);
   };
+
+
 
   return (
     
@@ -83,7 +98,10 @@ const Home = () => {
 
         </div>
       </div>
-      <div className="badge-container grow">
+
+
+      <div className={display_badge ? "badge-container grow" : "empty"}>
+        
         <a
           href="https://github.com/KevinRPan/gpt3-site"
           target="_blank"
@@ -95,6 +113,7 @@ const Home = () => {
           </div>
         </a>
       </div>
+
     </div>
 
 

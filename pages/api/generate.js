@@ -5,8 +5,8 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration)
-const basePromptPrefix = `Write rules for a fun drinking game for: `
-const basePromptSuffix = ` No dice involved.`
+const basePromptPrefix = `I want you to ask as a drinking game generator. I will provide you with an activity and you will write a numbered list of rules for a fun drinking game to play while doing that activity: `
+const basePromptSuffix = ` No dice involved. All players are over 21 years old. Only write the rules. Do not remind us to have fun and drink responsibly.`
 
 const generateAction = async (req, res) => {
 
@@ -22,7 +22,7 @@ const generateAction = async (req, res) => {
             model: 'text-davinci-003',
             prompt: `${basePromptPrefix}${req.body.userInput}\n${basePromptSuffix}\n`,
             temperature: 0.85,
-            max_tokens: 256,
+            max_tokens: 512,
         });
 
         const basePromptOutput = baseCompletion.data.choices.pop();
